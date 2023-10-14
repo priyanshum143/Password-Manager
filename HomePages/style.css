@@ -4,6 +4,7 @@
     padding: 0;
 }
 
+/* Style for Navbar */
 .navbar {
     background-color: #333;
     color: #fff;
@@ -26,4 +27,33 @@
     color: #fff;
     font-weight: bolder;
     font-size: 1.2rem;
+}
+
+/* Styles for Generate Password form */
+#generatePw{
+    height: 100vh;  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#generatePw input{
+    height: 2rem;  width: 20rem;
+    padding: 0.4rem;
+    font-size: medium;
+}
+
+#generatePw .btn{
+    height: 2rem;  width: 20rem;
+    padding: 0.4rem;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+    background-color: bisque;
+    font-weight: bold;
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }

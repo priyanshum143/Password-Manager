@@ -18,9 +18,13 @@
     </nav>
     
     <form action="" id="generatePw">
-        <input id="strLength" type="range">
-        <input id="generate-btn" type="button" value="Generate Password">
+        <input type="text" name="siteName" id="siteName" placeholder="Enter the name of site">
+        <br>
+        <input type="number" name="pwLength" id="pwLength" placeholder="Enter the length of Password" min="0" max="100">
+        <br>
+        <div class="btn" id="generate-btn"> Generate Password </div>
     </form>
+
     <div class="showPw">
         
     </div>
