@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // For Reset Password From
 document.addEventListener('DOMContentLoaded', function() {
     const emailInput = document.getElementById('email2');
-    const otp = document.getElementById('otp');
+    const otpInput = document.getElementById('otp');
     const passwordInput1 = document.getElementById('new-password');
     const passwordInput2 = document.getElementById('confirm-password');
     const resetButton = document.getElementById('changePw-btn');
