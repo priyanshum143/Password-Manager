@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS_Files/style.css">
+    <title>PassX - Password Manager</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div id="logo"><a href="index.html">PassX</a></div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="generate.html">Generate Password</a></li>
+            <li><a href="vault.html">Vault</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+    
+    <form action="" id="generatePw">
+        <input type="text" name="website" id="website" placeholder="Enter the name of website">
+        <br>
+        <input type="text" name="username" id="username" placeholder="Enter Your Username">
+        <br>
+        <input type="number" name="pwLength" id="pwLength" placeholder="Enter the length of Password" min="0" max="100">
+        <br>
+        <div class="btn" id="generateBtn"> Generate Password </div>
+    </form>
+
+    <div class="showPw">
+        
+    </div>
+
+    <script src="../JS_Files/script.js"></script>
+    <script src="../JS_Files/app.js"></script>
+</body>
+</html>
