@@ -7,15 +7,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const passwordValue = password.value;
     
         const data = localStorage.getItem("userData");
-        const dataArr = JSON.parse(data);
-        for(let idx=0; idx<dataArr.length; idx++){
-            if(dataArr[idx].passXUserName == emailValue){
-                if(dataArr[idx].passXPassword == passwordValue){
-                    window.location.href = 'HTML_Files/index.html';
+        if(data){
+            const dataArr = JSON.parse(data);
+            for(let idx=0; idx<dataArr.length; idx++){
+                if(dataArr[idx].passXUserName == emailValue){
+                    if(dataArr[idx].passXPassword == passwordValue){
+                        localStorage.setItem("isAuthenticated", true);
+                        window.location.href = 'HTML_Files/index.html';
+                        return;
+                    }
+                    alert("Incorrect Password, try reseting the password.");
                     return;
                 }
-                alert("Incorrect Password, try reseting the password.");
-                return;
             }
         }
         alert("You do not have any PassX account, try sign up instead.");
@@ -33,18 +36,21 @@ document.addEventListener('DOMContentLoaded', function() {
         const passwordVal2 = confirmPassword.value;
 
         const data = localStorage.getItem("userData");
-        const dataArr = JSON.parse(data);
-        for(let idx=0; idx<dataArr.length; idx++){
-            if(dataArr[idx].passXUserName == emailValue){
-                if(passwordVal1 == passwordVal2){
-                    // localStorage.setItem(passXPassword, passwordVal1);
-                    alert("Your password changed successfully");
-                    window.location.href = 'index.html';
-                    return;
-                }
-                else if(passwordVal1 != passwordVal2){
-                    alert("Recheck your new Password");
-                    return;
+        if(data){
+            const dataArr = JSON.parse(data);
+            for(let idx=0; idx<dataArr.length; idx++){
+                if(dataArr[idx].passXUserName == emailValue){
+                    if(passwordVal1 == passwordVal2){
+                        // localStorage.setItem(passXPassword, passwordVal1);
+                        localStorage.setItem("isAuthenticated", true);
+                        alert("Your password changed successfully");
+                        window.location.href = 'index.html';
+                        return;
+                    }
+                    else if(passwordVal1 != passwordVal2){
+                        alert("Recheck your new Password");
+                        return;
+                    }
                 }
             }
         }
@@ -80,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("Account Created");
             localStorage.setItem("userData", JSON.stringify(json));
         }
-
+        localStorage.setItem("isAuthenticated", true);
         window.location.href = 'index.html';
     });
 });

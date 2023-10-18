@@ -11,7 +11,7 @@ let currentPassword = "";
 document.addEventListener('DOMContentLoaded', function() {
     const generateButton = document.getElementById('generateBtn');
 
-    generateButton.addEventListener('click', function(e) {
+    generateButton.addEventListener('click', function() {
         const passwordLenValue = pwLength.value;
         for(let i=0; i<passwordLenValue; i++){
             let row = Math.floor(Math.random() * 4);
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
 let tb = document.querySelector('table');
 let data = localStorage.getItem("passwords");
 if(!data){
-    tb.innerHTML = "No Data to Show";
+    tb.innerHTML = "<h2><i>No Data to Show</i></h2>";
 }
 else{
     let arr = JSON.parse(data);
