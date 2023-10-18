@@ -1,6 +1,3 @@
-const emails = [];
-const passwords = [];
-
 // For Login Form
 document.addEventListener('DOMContentLoaded', function() {
     const loginButton = document.getElementById('loginBtn');
@@ -8,11 +5,21 @@ document.addEventListener('DOMContentLoaded', function() {
     loginButton.addEventListener('click', function() {
         const emailValue = email1.value;
         const passwordValue = password.value;
-        console.log(emails);
-        const idxOfEmail = emails.indexOf(emailValue);
-        if(idxOfEmail == -1) alert("You do not have any PassX account. try sign up instead.");
-        else if(passwords[idxOfEmail] != passwordValue) alert("Password is wrong, try forgot password");
-        else if(passwords[idxOfEmail] == passwordValue) window.location.href = '../HTML_Files/index.html';
+    
+        const data = localStorage.getItem("userData");
+        const dataArr = JSON.parse(data);
+        for(let idx=0; idx<dataArr.length; idx++){
+            if(dataArr[idx].passXUserName == emailValue){
+                if(dataArr[idx].passXPassword == passwordValue){
+                    window.location.href = 'HTML_Files/index.html';
+                    return;
+                }
+                alert("Incorrect Password, try reseting the password.");
+                return;
+            }
+        }
+        alert("You do not have any PassX account, try sign up instead.");
+        return;
     });
 });
 
@@ -25,13 +32,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const passwordVal1 = newPassword.value;
         const passwordVal2 = confirmPassword.value;
 
-        const idxOfEmail = emails.indexOf(emailValue);
-        if(idxOfEmail == -1) alert("Your email does not exist, try sign up instead.");
-        else if(passwordVal1 != passwordVal2) alert("Confirm your password again.");
-        else if(passwordVal1 == passwordVal2){
-            passwords[idxOfEmail] = passwordVal1;
-            window.location.href = '../HTML_Files/index.html';
+        const data = localStorage.getItem("userData");
+        const dataArr = JSON.parse(data);
+        for(let idx=0; idx<dataArr.length; idx++){
+            if(dataArr[idx].passXUserName == emailValue){
+                if(passwordVal1 == passwordVal2){
+                    // localStorage.setItem(passXPassword, passwordVal1);
+                    alert("Your password changed successfully");
+                    window.location.href = 'index.html';
+                    return;
+                }
+                else if(passwordVal1 != passwordVal2){
+                    alert("Recheck your new Password");
+                    return;
+                }
+            }
         }
+        alert("You do not have any PassX account, try sign up instead");
+        return;
     });
 });
 
@@ -43,8 +61,26 @@ document.addEventListener('DOMContentLoaded', function() {
         const emailValue = email3.value;
         const passwordVal = setPassword.value;
 
-        emails.push(emailValue);
-        passwords.push(passwordVal);
-        window.location.href = '../HTML_Files/index.html';
+        let userData = localStorage.getItem("userData");
+        if(!userData){
+            let json = [];
+            json.push({
+                passXUserName: emailValue,
+                passXPassword: passwordVal,
+            });
+            alert("Account Created");
+            localStorage.setItem("userData", JSON.stringify(json));
+        }
+        else{
+            let json = JSON.parse(localStorage.getItem("userData"));
+            json.push({
+                passXUserName: emailValue,
+                passXPassword: passwordVal,
+            });
+            alert("Account Created");
+            localStorage.setItem("userData", JSON.stringify(json));
+        }
+
+        window.location.href = 'index.html';
     });
 });
