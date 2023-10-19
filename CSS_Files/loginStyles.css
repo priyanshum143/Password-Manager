@@ -19,7 +19,7 @@
 }
 
 #login-form .btn{
-    height: 2rem;  width: 20rem;
+    height: 3rem;  width: 21rem;
     padding: 0.4rem;
     border: 2px solid black;
     border-radius: 0.5rem;
@@ -31,6 +31,15 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+#login-form .btn:hover{
+    background-color: #555;
+    color: #fff;
+}
+#login-form .btn:active{
+    background-color: #444;
+    transform: translateY(2px);
 }
 
 #forget-pw{
@@ -54,7 +63,7 @@
 }
 
 #resetPassword-form .btn{
-    height: 2rem;  width: 20rem;
+    height: 3rem;  width: 21rem;
     padding: 0.4rem;
     border: 2px solid black;
     border-radius: 0.5rem;
@@ -66,6 +75,15 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+#resetPassword-form .btn:hover{
+    background-color: #555;
+    color: #fff;
+}
+#resetPassword-form .btn:active{
+    background-color: #444;
+    transform: translateY(2px);
 }
 
 /* Styles for Sign Up Page */
@@ -84,7 +102,7 @@
 }
 
 #signup-form .btn{
-    height: 2rem;  width: 20rem;
+    height: 3rem;  width: 21rem;
     padding: 0.4rem;
     border: 2px solid black;
     border-radius: 0.5rem;
@@ -96,4 +114,13 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+#signup-form .btn:hover{
+    background-color: #555;
+    color: #fff;
+}
+#signup-form .btn:active{
+    background-color: #444;
+    transform: translateY(2px);
 }
