@@ -8,6 +8,7 @@ const characters = [
 
 // working of generate button
 const isAuthenticated = localStorage.getItem("isAuthenticated");
+
 let currentPassword = "";
 document.addEventListener('DOMContentLoaded', function() {
     const generateButton = document.getElementById('generateBtn');
@@ -73,7 +74,7 @@ if(isAuthenticated == "true"){
                                 <td>${ele.website}</td>
                                 <td>${ele.username}</td>
                                 <td>${ele.password}</td>
-                                <td>${"Delete"}</td>
+                                <td><button id="${ele.website}" class="deletePwBtn">Delete</button></td>
                             </tr>`;
                     tb.innerHTML += row;
                 }
@@ -84,3 +85,32 @@ if(isAuthenticated == "true"){
 else{
     tb.innerHTML = "<h2><i>Login first, you dumb ass ni**a</i></h2>";
 }
+
+// Function to delete a row from vault table
+document.addEventListener('DOMContentLoaded', function() {
+    const deleteButton = document.querySelectorAll('.deletePwBtn');
+    for(let i=0; i<deleteButton.length; i++){
+        deleteButton[i].addEventListener('click', function() {
+            console.log("first => " + deleteButton[i].id);
+            const userData = localStorage.getItem('userData');
+            const dataArr = JSON.parse(userData);
+    
+            const currUser = localStorage.getItem('currUser');
+            for(let idx=0; idx<dataArr.length; idx++){
+                if(dataArr[idx].passXUserName == currUser){
+                    console.log("user found => " + currUser);
+                    const passwordsList = dataArr[idx].passwordsList;
+                    const updatedPwList = passwordsList.filter(function(item){
+                        return item[0].website != deleteButton[i].id;
+                    });
+                    dataArr[idx].passwordsList = updatedPwList;
+                    console.log(updatedPwList);
+                    localStorage.setItem("userData", JSON.stringify(dataArr));
+                    window.location.href = "../HTML_Files/vault.html*--";
+                    break;
+                }
+            }
+            
+        });
+    }
+});
