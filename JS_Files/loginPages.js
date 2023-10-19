@@ -42,9 +42,10 @@ document.addEventListener('DOMContentLoaded', function() {
             for(let idx=0; idx<dataArr.length; idx++){
                 if(dataArr[idx].passXUserName == emailValue){
                     if(passwordVal1 == passwordVal2){
-                        // localStorage.setItem(passXPassword, passwordVal1);
+                        dataArr[idx].passXPassword = passwordVal1;
                         localStorage.setItem("isAuthenticated", true);
                         localStorage.setItem("currUser", emailValue);
+                        localStorage.setItem("userData", JSON.stringify(dataArr));
                         alert("Your password changed successfully");
                         window.location.href = 'index.html';
                         return;
