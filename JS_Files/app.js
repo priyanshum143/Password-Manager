@@ -7,6 +7,7 @@ const characters = [
 ];
 
 // working of generate button
+const isAuthenticated = localStorage.getItem("isAuthenticated");
 let currentPassword = "";
 document.addEventListener('DOMContentLoaded', function() {
     const generateButton = document.getElementById('generateBtn');
@@ -23,8 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
             currentPassword += characters[row][col];
         }
 
-        let passwords = localStorage.getItem("passwords");
-        if(!passwords){
+        if(isAuthenticated == "true"){
             let json = [];
             json.push({
                 website: website.value,
@@ -32,40 +32,55 @@ document.addEventListener('DOMContentLoaded', function() {
                 password: currentPassword
             });
             alert("Password Saved");
-            localStorage.setItem("passwords", JSON.stringify(json));
+
+            const storedData = localStorage.getItem("userData");
+            const dataArr = JSON.parse(storedData);
+
+            const currUser = localStorage.getItem("currUser");
+            for(let idx=0; idx<dataArr.length; idx++){
+                if(dataArr[idx].passXUserName == currUser){
+                    dataArr[idx].passwordsList.push(json);
+                    localStorage.setItem("userData", JSON.stringify(dataArr));
+                    window.location.href = "../HTML_Files/vault.html"
+                    return;
+                }
+            }
         }
         else{
-            let json = JSON.parse(localStorage.getItem("passwords"));
-            json.push({
-                website: website.value,
-                username: username.value,
-                password: currentPassword
-            });
-            alert("Password Saved");
-            localStorage.setItem("passwords", JSON.stringify(json));
+            alert("You must login first, you motherfucker");
         }
-        window.location.href = "../HTML_Files/vault.html"
     });
 });
 
 // code to write data in table
 let tb = document.querySelector('table');
-let data = localStorage.getItem("passwords");
-if(!data){
-    tb.innerHTML = "<h2><i>No Data to Show</i></h2>";
+if(isAuthenticated == "true"){
+    const data = localStorage.getItem("userData");
+    const dataArr = JSON.parse(data);
+
+    const currUser = localStorage.getItem("currUser");
+    for(let idx=0; idx<dataArr.length; idx++){
+        if(dataArr[idx].passXUserName == currUser){
+            const passwordsList = dataArr[idx].passwordsList;
+            if(passwordsList.length == 0){
+                tb.innerHTML = "<h2><i>No Data to Show</i></h2>";
+            }
+            else{
+                for(let pwIdx=0; pwIdx<passwordsList.length; pwIdx++){
+                    const ele = passwordsList[pwIdx][0];
+                    const row =
+                            `<tr>
+                                <td>${ele.website}</td>
+                                <td>${ele.username}</td>
+                                <td>${ele.password}</td>
+                                <td>${"Delete"}</td>
+                            </tr>`;
+                    tb.innerHTML += row;
+                }
+            }
+        }
+    }
 }
 else{
-    let arr = JSON.parse(data);
-    let str = "";
-    for(let i=0; i<arr.length; i++){
-        const ele = arr[i];
-        str =
-            `<tr>
-                <td>${ele.website}</td>
-                <td>${ele.username}</td>
-                <td>${ele.password}</td>
-                <td>${"Delete"}</td>
-            </tr>`;
-        tb.innerHTML += str;
-    }
+    tb.innerHTML = "<h2><i>Login first, you dumb ass ni**a</i></h2>";
 }

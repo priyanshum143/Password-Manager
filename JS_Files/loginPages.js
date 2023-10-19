@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if(dataArr[idx].passXUserName == emailValue){
                     if(dataArr[idx].passXPassword == passwordValue){
                         localStorage.setItem("isAuthenticated", true);
+                        localStorage.setItem("currUser", emailValue);
                         window.location.href = 'HTML_Files/index.html';
                         return;
                     }
@@ -43,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if(passwordVal1 == passwordVal2){
                         // localStorage.setItem(passXPassword, passwordVal1);
                         localStorage.setItem("isAuthenticated", true);
+                        localStorage.setItem("currUser", emailValue);
                         alert("Your password changed successfully");
                         window.location.href = 'index.html';
                         return;
@@ -73,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
             json.push({
                 passXUserName: emailValue,
                 passXPassword: passwordVal,
+                passwordsList: []
             });
             alert("Account Created");
             localStorage.setItem("userData", JSON.stringify(json));
@@ -82,11 +85,13 @@ document.addEventListener('DOMContentLoaded', function() {
             json.push({
                 passXUserName: emailValue,
                 passXPassword: passwordVal,
+                passwordsList: []
             });
             alert("Account Created");
             localStorage.setItem("userData", JSON.stringify(json));
         }
         localStorage.setItem("isAuthenticated", true);
+        localStorage.setItem("currUser", emailValue);
         window.location.href = 'index.html';
     });
 });
