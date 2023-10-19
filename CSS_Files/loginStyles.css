@@ -19,7 +19,7 @@
 }
 
 #login-form .btn{
-    height: 3rem;  width: 21rem;
+    height: 2rem;  width: 20rem;
     padding: 0.4rem;
     border: 2px solid black;
     border-radius: 0.5rem;
@@ -63,7 +63,7 @@
 }
 
 #resetPassword-form .btn{
-    height: 3rem;  width: 21rem;
+    height: 2rem;  width: 20rem;
     padding: 0.4rem;
     border: 2px solid black;
     border-radius: 0.5rem;
@@ -102,7 +102,7 @@
 }
 
 #signup-form .btn{
-    height: 3rem;  width: 21rem;
+    height: 2rem;  width: 20rem;
     padding: 0.4rem;
     border: 2px solid black;
     border-radius: 0.5rem;
