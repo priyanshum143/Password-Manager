@@ -91,26 +91,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const deleteButton = document.querySelectorAll('.deletePwBtn');
     for(let i=0; i<deleteButton.length; i++){
         deleteButton[i].addEventListener('click', function() {
-            console.log("first => " + deleteButton[i].id);
             const userData = localStorage.getItem('userData');
             const dataArr = JSON.parse(userData);
     
             const currUser = localStorage.getItem('currUser');
             for(let idx=0; idx<dataArr.length; idx++){
                 if(dataArr[idx].passXUserName == currUser){
-                    console.log("user found => " + currUser);
                     const passwordsList = dataArr[idx].passwordsList;
                     const updatedPwList = passwordsList.filter(function(item){
                         return item[0].website != deleteButton[i].id;
                     });
                     dataArr[idx].passwordsList = updatedPwList;
-                    console.log(updatedPwList);
                     localStorage.setItem("userData", JSON.stringify(dataArr));
-                    window.location.href = "../HTML_Files/vault.html*--";
+                    window.location.href = "../HTML_Files/vault.html";
                     break;
                 }
             }
-            
         });
     }
 });
