@@ -2,7 +2,7 @@
 const characters = [
     ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
     ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
-    ['!', '@', '#', '$', '^', '^', '&', '*', '_', '-'],
+    ['!', '@', '#', '$', '!', '^', '&', '*', '_', '-'],
     ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
 ];
 
@@ -73,9 +73,7 @@ if(isAuthenticated == "true"){
                     `<tr>
                         <td>${ele.website}</td>
                         <td>${ele.username}</td>
-                        <td>${ele.password} <img id="${ele.password}" src="../CSS_Files/copy.svg" alt="Copy Button" width="10px" height="15px"
-                                            onclick="copyText('${ele.password}')" style="cursor:pointer">
-                        </td>
+                        <td>${maskPassword(ele.password)} <img src="../CSS_Files/copy.svg" onclick="copyText('${ele.password}')"></td>
                         <td><button id="${ele.website}" class="deletePwBtn">Delete</button></td>
                     </tr>`;
                     tb.innerHTML += row;
@@ -117,4 +115,13 @@ document.addEventListener('DOMContentLoaded', function() {
 function copyText(text) {
     navigator.clipboard.writeText(text);
     alert("Text-copied => " + text);
+}
+
+// Function to mask password
+function maskPassword(password){
+    let newPassword = "";
+    for(let i=0; i<password.length; i++){
+        newPassword += '*';
+    }
+    return newPassword;
 }
