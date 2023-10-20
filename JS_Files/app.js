@@ -2,7 +2,7 @@
 const characters = [
     ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
     ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
-    ['!', '@', '#', '$', '%', '^', '&', '*', '_', '-'],
+    ['!', '@', '#', '$', '^', '^', '&', '*', '_', '-'],
     ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
 ];
 
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// code to write data in table
+// code to show data in table
 let tb = document.querySelector('table');
 if(isAuthenticated == "true"){
     const data = localStorage.getItem("userData");
@@ -70,12 +70,14 @@ if(isAuthenticated == "true"){
                 for(let pwIdx=0; pwIdx<passwordsList.length; pwIdx++){
                     const ele = passwordsList[pwIdx][0];
                     const row =
-                            `<tr>
-                                <td>${ele.website}</td>
-                                <td>${ele.username}</td>
-                                <td>${ele.password}</td>
-                                <td><button id="${ele.website}" class="deletePwBtn">Delete</button></td>
-                            </tr>`;
+                    `<tr>
+                        <td>${ele.website}</td>
+                        <td>${ele.username}</td>
+                        <td>${ele.password} <img id="${ele.password}" src="../CSS_Files/copy.svg" alt="Copy Button" width="10px" height="15px"
+                                            onclick="copyText('${ele.password}')" style="cursor:pointer">
+                        </td>
+                        <td><button id="${ele.website}" class="deletePwBtn">Delete</button></td>
+                    </tr>`;
                     tb.innerHTML += row;
                 }
             }
@@ -110,3 +112,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Function to copy text
+function copyText(text) {
+    navigator.clipboard.writeText(text);
+    alert("Text-copied => " + text);
+}
