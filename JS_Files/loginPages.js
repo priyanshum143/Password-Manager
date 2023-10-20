@@ -83,6 +83,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         else{
             let json = JSON.parse(localStorage.getItem("userData"));
+            for(let idx=0; idx<json.length; idx++){
+                if(json[idx].passXUserName == emailValue){
+                    alert("This username already exists.");
+                    return;
+                }
+            }
             json.push({
                 passXUserName: emailValue,
                 passXPassword: passwordVal,
