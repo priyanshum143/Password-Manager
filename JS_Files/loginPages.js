@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if(dataArr[idx].passXPassword == passwordValue){
                         localStorage.setItem("isAuthenticated", true);
                         localStorage.setItem("currUser", emailValue);
-                        window.location.href = 'HTML_Files/index.html';
+                        window.location.href = '../index.html';
                         return;
                     }
                     alert("Incorrect Password, try reseting the password.");
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         localStorage.setItem("currUser", emailValue);
                         localStorage.setItem("userData", JSON.stringify(dataArr));
                         alert("Your password changed successfully");
-                        window.location.href = 'index.html';
+                        window.location.href = '../index.html';
                         return;
                     }
                     else if(passwordVal1 != passwordVal2){
@@ -99,6 +99,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         localStorage.setItem("isAuthenticated", true);
         localStorage.setItem("currUser", emailValue);
-        window.location.href = 'index.html';
+        window.location.href = '../index.html';
     });
 });

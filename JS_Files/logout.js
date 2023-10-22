@@ -5,14 +5,14 @@ document.addEventListener('DOMContentLoaded', function(){
     logoutButton.addEventListener('click', function(){
         localStorage.setItem("isAuthenticated", false);
         localStorage.setItem("currUser", "");
-        window.location.href = "../login.html"
+        window.location.href = "HTML_Files/login.html"
     });
 });
 
 const isAuthenticated = localStorage.getItem("isAuthenticated");
 if(isAuthenticated == "false"){
     const logoutButton = document.getElementById("logoutBtn");
-    logoutButton.innerHTML = '<a href="../login.html"> Log In </a>';
+    logoutButton.innerHTML = 'Log In';
 }
 
 // Function to delete account permanently
@@ -28,6 +28,11 @@ document.addEventListener('DOMContentLoaded', function(){
         localStorage.setItem("userData", JSON.stringify(updatedDataArr));
         localStorage.setItem("currUser", "");
         localStorage.setItem("isAuthenticated", false);
-        window.location.href = "../login.html"
+        window.location.href = "HTML_Files/signup.html"
     });
 });
+
+if(isAuthenticated == "false"){
+    const createAccount = document.getElementById("deleteAcc");
+    createAccount.innerHTML = '<button>Create Account</button>';
+}

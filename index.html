@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS_Files/style.css">
+    <link rel="stylesheet" href="CSS_Files/navbar.css">
+    <title>PassX - Password Manager</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div id="logo"><a href="index.html">PassX</a></div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a id="generatePage" href="HTML_Files/generate.html">Generate Password</a></li>
+            <li><a id="vaultPage" href="HTML_Files/vault.html">Vault</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+    
+    <main id="mainIndexDiv">
+        <div id="imgDiv">
+            <img src="images/img1.avif" alt="image1">
+        </div>
+
+        <div id="contentDiv">
+            <h1>Welcome to PassX</h1>
+            <h3>Your own Password Manager</h3>
+            <hr>
+            <p>
+                Welcome to our cutting-edge password manager and random password generator. We've designed a secure, user-friendly solution to
+                help you safeguard your online accounts effortlessly. With SecurePass, you can generate strong, unpredictable passwords in a
+                snap, ensuring your digital life remains protected from potential security threats. Our intuitive platform simplifies the
+                complex world of online security, allowing you to manage and create passwords with ease. Explore the future of password
+                management with SecurePass, where security meets simplicity.
+            </p>
+            <div id="buttonsDiv">
+                <button id="logoutBtn"> Log Out </button>
+                <button id="deleteAcc"> Delete Account </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="JS_Files/logout.js"></script>
+    <script src="JS_Files/app.js"></script>
+    <script src="JS_Files/authentication.js"></script>
+</body>
+</html>

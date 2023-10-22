@@ -5,7 +5,7 @@
 
 /* Styles for Login Page */
 #login-form{
-    height: 100vh;  width: 100%;
+    height: 90vh;  width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,7 +49,7 @@
 
 /* Styles For Reset Password Page */
 #resetPassword-form{
-    height: 100vh;  width: 100vw;
+    height: 80vh;  width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,7 +88,7 @@
 
 /* Styles for Sign Up Page */
 #signup-form{
-    height: 100vh;  width: 100vw;
+    height: 80vh;  width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
