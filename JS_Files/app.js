@@ -84,6 +84,8 @@ if(isAuthenticated == "true"){
 }
 else{
     tb.innerHTML = "<h2><i>Login first, you dumb ass ni**a</i></h2>";
+    const addDataButton = document.getElementById('addDataButton');
+    addDataButton.style.display = "none";
 }
 
 // Function to delete a row from vault table
@@ -124,4 +126,44 @@ function maskPassword(password){
         newPassword += '*';
     }
     return newPassword;
+}
+
+// Function to add data in table
+if(isAuthenticated == "true"){
+    document.addEventListener('DOMContentLoaded', function(){
+        const addDataButton = document.getElementById('addDataButton');
+
+        addDataButton.addEventListener('click', function(){
+            const websiteVal = prompt("Enter name of website.");
+            const usernameVal = prompt("Enter your username.");
+            const passwordVal = prompt("Enter your Password.");
+
+            const newData = [];
+            newData.push({
+                website: websiteVal,
+                username: usernameVal,
+                password: passwordVal
+            });
+
+            const dataArr = JSON.parse(localStorage.getItem("userData"));
+            const currUser = localStorage.getItem("currUser");
+            for(let idx=0; idx<dataArr.length; idx++){
+                if(dataArr[idx].passXUserName == currUser){
+                    dataArr[idx].passwordsList.push(newData);
+                    localStorage.setItem("userData", JSON.stringify(dataArr));
+                    window.location.href = "../HTML_Files/vault.html"
+                    return;
+                }
+            }
+
+            const row =
+                `<tr>
+                    <td>${websiteVal}</td>
+                    <td>${usernameVal}</td>
+                    <td>${maskPassword(passwordVal)} <img src="../CSS_Files/copy.svg" onclick="copyText('${passwordVal}')"></td>
+                    <td><button id="${websiteVal}" class="deletePwBtn">Delete</button></td>
+                </tr>`;
+            tb.innerHTML += row;
+        })
+    })
 }
