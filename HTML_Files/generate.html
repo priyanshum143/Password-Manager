@@ -28,11 +28,18 @@
         <br>
         <div class="btn" id="generateBtn"> Generate Password </div>
     </form>
-
-    <div class="showPw">
-        
-    </div>
     
+    <div id="savePasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div>
+                <p id="regenratePasswordOpt"> </p>
+                <p>Do you wanna save this Password?</p>
+                <button class="btn" id="savePassword">Save Password</button>
+            </div>
+        </div>
+    </div>
+
     <script src="../JS_Files/authentication.js"></script>
     <script src="../JS_Files/app.js"></script>
 </body>
