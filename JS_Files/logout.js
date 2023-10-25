@@ -28,11 +28,15 @@ document.addEventListener('DOMContentLoaded', function(){
         localStorage.setItem("userData", JSON.stringify(updatedDataArr));
         localStorage.setItem("currUser", "");
         localStorage.setItem("isAuthenticated", false);
-        window.location.href = "HTML_Files/signup.html"
+        window.location.href = "HTML_Files/signup.html";
     });
 });
 
 if(isAuthenticated == "false"){
     const createAccount = document.getElementById("deleteAcc");
-    createAccount.innerHTML = '<button>Create Account</button>';
+    createAccount.innerHTML = 'Create Account';
+
+    createAccount.addEventListener('click', function(){
+        window.location.href = "HTML_Files/signup.html";
+    })
 }
