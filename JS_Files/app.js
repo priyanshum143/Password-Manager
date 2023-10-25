@@ -157,42 +157,65 @@ function maskPassword(password){
     return newPassword;
 }
 
-// Function to add data in table
+// Function to add data in table manually
 if(isAuthenticated == "true"){
     document.addEventListener('DOMContentLoaded', function(){
         const addDataButton = document.getElementById('addDataButton');
 
         addDataButton.addEventListener('click', function(){
-            const websiteVal = prompt("Enter name of website.");
-            const usernameVal = prompt("Enter your username.");
-            const passwordVal = prompt("Enter your Password.");
-
-            const newData = [];
-            newData.push({
-                website: websiteVal,
-                username: usernameVal,
-                password: passwordVal
-            });
-
-            const dataArr = JSON.parse(localStorage.getItem("userData"));
-            const currUser = localStorage.getItem("currUser");
-            for(let idx=0; idx<dataArr.length; idx++){
-                if(dataArr[idx].passXUserName == currUser){
-                    dataArr[idx].passwordsList.push(newData);
-                    localStorage.setItem("userData", JSON.stringify(dataArr));
-                    window.location.href = "../HTML_Files/vault.html"
-                    return;
+            const modal = document.getElementById("addDataModal");
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
                 }
             }
 
-            const row =
-                `<tr>
-                    <td>${websiteVal}</td>
-                    <td>${usernameVal}</td>
-                    <td>${maskPassword(passwordVal)} <img src="../CSS_Files/copy.svg" onclick="copyText('${passwordVal}')"></td>
-                    <td><button id="${websiteVal}" class="deletePwBtn">Delete</button></td>
-                </tr>`;
-            tb.innerHTML += row;
+            const btn = document.getElementById("addDataButton");
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            const span = document.getElementsByClassName("close")[0];
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
         })
     })
 }
+
+document.addEventListener('DOMContentLoaded', function(){
+    const addDataButton = document.getElementById('addDataButton2');
+
+    addDataButton.addEventListener('click', function(){
+        const websiteVal = website2.value;
+        const usernameVal = username2.value;
+        const passwordVal = password2.value;
+
+        const newData = [];
+        newData.push({
+            website: websiteVal,
+            username: usernameVal,
+            password: passwordVal
+        });
+
+        const dataArr = JSON.parse(localStorage.getItem("userData"));
+        const currUser = localStorage.getItem("currUser");
+        for(let idx=0; idx<dataArr.length; idx++){
+            if(dataArr[idx].passXUserName == currUser){
+                dataArr[idx].passwordsList.push(newData);
+                localStorage.setItem("userData", JSON.stringify(dataArr));
+                window.location.href = "../HTML_Files/vault.html"
+                return;
+            }
+        }
+
+        const row =
+            `<tr>
+                <td>${websiteVal}</td>
+                <td>${usernameVal}</td>
+                <td>${maskPassword(passwordVal)} <img src="../CSS_Files/copy.svg" onclick="copyText('${passwordVal}')"></td>
+                <td><button id="${websiteVal}" class="deletePwBtn">Delete</button></td>
+            </tr>`;
+        tb.innerHTML += row;
+    })
+})
