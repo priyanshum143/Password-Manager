@@ -6,7 +6,7 @@ const characters = [
     ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
 ];
 
-// working of generate button
+// working of generate button and function to open modal
 const isAuthenticated = localStorage.getItem("isAuthenticated");
 
 let currentPassword = "";
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const generateButton = document.getElementById('generateBtn');
 
     generateButton.addEventListener('click', function() {
+        currentPassword = "";
         const passwordLenValue = pwLength.value;
         for(let i=0; i<passwordLenValue; i++){
             let row = Math.floor(Math.random() * 4);
@@ -21,36 +22,64 @@ document.addEventListener('DOMContentLoaded', function() {
             let col = 0;
             if(row < 2) col = Math.floor(Math.random() * 26);
             else col = Math.floor(Math.random() * 10);
-
+            
             currentPassword += characters[row][col];
         }
 
         if(isAuthenticated == "true"){
-            let json = [];
-            json.push({
-                website: website.value,
-                username: username.value,
-                password: currentPassword
-            });
-            alert("Password Saved");
-
-            const storedData = localStorage.getItem("userData");
-            const dataArr = JSON.parse(storedData);
-
-            const currUser = localStorage.getItem("currUser");
-            for(let idx=0; idx<dataArr.length; idx++){
-                if(dataArr[idx].passXUserName == currUser){
-                    dataArr[idx].passwordsList.push(json);
-                    localStorage.setItem("userData", JSON.stringify(dataArr));
-                    window.location.href = "../HTML_Files/vault.html"
-                    return;
+            const modal = document.getElementById("savePasswordModal");
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
                 }
             }
+
+            const btn = document.getElementById("generateBtn");
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            const span = document.getElementsByClassName("close")[0];
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            const regenratePasswordOpt = document.getElementById('regenratePasswordOpt');
+            const webisteInput = document.getElementById('website');
+            const webisteVal = webisteInput.value;
+            regenratePasswordOpt.innerHTML = `Your Password for '${webisteVal}' is '${currentPassword}'`;
         }
         else{
-            alert("You must login first, you motherfucker");
+            alert("You must login First.");
         }
     });
+});
+
+// working of save password
+document.addEventListener('DOMContentLoaded', function() {
+    const savePasswordBtn = document.getElementById('savePassword');
+
+    savePasswordBtn.addEventListener('click', function(){
+        let json = [];
+        json.push({
+            website: website.value,
+            username: username.value,
+            password: currentPassword
+        });
+
+        const storedData = localStorage.getItem("userData");
+        const dataArr = JSON.parse(storedData);
+
+        const currUser = localStorage.getItem("currUser");
+        for(let idx=0; idx<dataArr.length; idx++){
+            if(dataArr[idx].passXUserName == currUser){
+                dataArr[idx].passwordsList.push(json);
+                localStorage.setItem("userData", JSON.stringify(dataArr));
+                window.location.href = "../HTML_Files/vault.html"
+                return;
+            }
+        }
+    })
 });
 
 // code to show data in table
