@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function(){
             modal.style.display = "block";
         }
 
-        const span = document.getElementsByClassName("close")[0];
+        const span = document.getElementsByClassName("close")[1];
         span.onclick = function() {
             modal.style.display = "none";
         }

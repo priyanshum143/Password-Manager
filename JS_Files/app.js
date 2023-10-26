@@ -112,7 +112,7 @@ if(isAuthenticated == "true"){
     }
 }
 else{
-    tb.innerHTML = "<h2><i>Login first, you dumb ass ni**a</i></h2>";
+    tb.innerHTML = "<h2><i>You must login first.</i></h2>";
     const addDataButton = document.getElementById('addDataButton');
     addDataButton.style.display = "none";
 }
