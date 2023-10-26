@@ -26,10 +26,12 @@ table, td, tr, th{
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
+
 .deletePwBtn:hover {
     background-color: #555;
     color: #fff;
 }
+
 .deletePwBtn:active {
     background-color: #444;
     transform: translateY(1px);
@@ -64,10 +66,12 @@ table, td, tr, th{
     align-items: center;
     cursor: pointer;
 }
+
 #addDataDiv button:hover {
     background-color: #555;
     color: #fff;
 }
+
 #addDataDiv button:active {
     background-color: #444;
     transform: translateY(1px);
@@ -138,10 +142,12 @@ table, td, tr, th{
     align-items: center;
     cursor: pointer;
 }
+
 .modal-content div button:hover{
     background-color: #555;
     color: #fff;
 }
+
 .modal-content div button:active{
     background-color: #444;
     transform: translateY(2px);

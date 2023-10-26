@@ -33,10 +33,12 @@
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
 }
+
 #login-form .btn:hover{
     background-color: #555;
     color: #fff;
 }
+
 #login-form .btn:active{
     background-color: #444;
     transform: translateY(2px);
@@ -77,10 +79,12 @@
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
 }
+
 #resetPassword-form .btn:hover{
     background-color: #555;
     color: #fff;
 }
+
 #resetPassword-form .btn:active{
     background-color: #444;
     transform: translateY(2px);
@@ -116,10 +120,12 @@
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
 }
+
 #signup-form .btn:hover{
     background-color: #555;
     color: #fff;
 }
+
 #signup-form .btn:active{
     background-color: #444;
     transform: translateY(2px);

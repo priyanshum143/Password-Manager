@@ -60,11 +60,84 @@
     cursor: pointer;
     border-radius: 0.5rem;
 }
+
 #buttonsDiv button:hover{
     background-color: #555;
     color: #fff;
 }
+
 #buttonsDiv button:active{
+    background-color: #444;
+    transform: translateY(2px);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content div{
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content div div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content div div button{
+    width: 15rem;
+    height: 3rem;
+    margin: 1rem;
+    background-color: #333;
+    color: white;
+    font-size: larger;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+.modal-content div div button:hover{
+    background-color: #555;
+    color: #fff;
+}
+
+.modal-content div div button:active{
     background-color: #444;
     transform: translateY(2px);
 }

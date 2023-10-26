@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if(dataArr[idx].passXPassword == passwordValue){
                         localStorage.setItem("isAuthenticated", true);
                         localStorage.setItem("currUser", emailValue);
+                        alert(`Welcome back ${emailValue}`);
                         window.location.href = '../index.html';
                         return;
                     }
@@ -78,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 passXPassword: passwordVal,
                 passwordsList: []
             });
-            alert("Account Created");
+            alert("Account Created, Welcome to CodeCrypt.");
             localStorage.setItem("userData", JSON.stringify(json));
         }
         else{
@@ -94,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 passXPassword: passwordVal,
                 passwordsList: []
             });
-            alert("Account Created");
+            alert("Account Created, Welcome to CodeCrypt.");
             localStorage.setItem("userData", JSON.stringify(json));
         }
         localStorage.setItem("isAuthenticated", true);

@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS_Files/homePageStyle.css">
     <link rel="stylesheet" href="CSS_Files/navbar.css">
-    <title>PassX - Password Manager</title>
+    <title>CodeCrypt - Password Manager</title>
 </head>
 <body>
     <nav class="navbar">
-        <div id="logo"><a href="index.html">PassX</a></div>
+        <div id="logo"><a href="index.html">CodeCrypt</a></div>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a id="generatePage" href="HTML_Files/generate.html">Generate Password</a></li>
@@ -25,7 +25,7 @@
         </div>
 
         <div id="contentDiv">
-            <h1>Welcome to PassX</h1>
+            <h1>Welcome to CodeCrypt</h1>
             <h3>Your own Password Manager</h3>
             <hr>
             <p>
@@ -40,6 +40,33 @@
                 <button id="deleteAcc"> Delete Account </button>
             </div>
         </div>
+
+        <div id="logoutModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div>
+                    <p>Are You sure you want to Log out?</p>
+                    <div>
+                        <button id="yes1">Yes</button>
+                        <button id="no1">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="deleteAccModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div>
+                    <p>Are You sure you want to delete the account permanently?</p>
+                    <div>
+                        <button id="yes">Yes</button>
+                        <button id="no">No</butto>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <script src="JS_Files/logout.js"></script>
