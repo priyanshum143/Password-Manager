@@ -103,7 +103,7 @@ if(isAuthenticated == "true"){
                         <td>${ele.website}</td>
                         <td>${ele.username}</td>
                         <td>${maskPassword(ele.password)} <img src="../CSS_Files/copy.svg" onclick="copyText('${ele.password}')"></td>
-                        <td><button id="${ele.website}" class="deletePwBtn">Delete</button></td>
+                        <td> <button id="${ele.website}" class="deletePwBtn">Delete</button> </td>
                     </tr>`;
                     tb.innerHTML += row;
                 }

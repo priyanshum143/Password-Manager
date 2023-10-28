@@ -3,3 +3,32 @@
     margin: 0;
     padding: 0;
 }
+
+.container{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1{
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
+
+.contact-info{
+    text-align: center;
+}
+
+.contact-info a{
+    text-decoration: none;
+    color: #0077b5;
+}
+
+.contact-info a:hover{
+    text-decoration: underline;
+}

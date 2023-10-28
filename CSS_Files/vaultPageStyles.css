@@ -22,17 +22,18 @@ table, td, tr, th{
     background-color: #333;
     color: white;
     border-radius: 0.3rem;
-    height: 2rem;  width: 5rem;
+    height: 2.5rem;  width: 7rem;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+    padding: 10px;
 }
 
-.deletePwBtn:hover {
+.deletePwBtn:hover{
     background-color: #555;
     color: #fff;
 }
 
-.deletePwBtn:active {
+.deletePwBtn:active{
     background-color: #444;
     transform: translateY(1px);
 }
@@ -96,7 +97,7 @@ table, td, tr, th{
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 40%;
+    width: 80%;
 }
 
 .close {
@@ -151,25 +152,4 @@ table, td, tr, th{
 .modal-content div button:active{
     background-color: #444;
     transform: translateY(2px);
-}
-
-.modal2 {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
 }
