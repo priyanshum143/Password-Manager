@@ -10,37 +10,37 @@ const characters = [
 const isAuthenticated = localStorage.getItem("isAuthenticated");
 
 let currentPassword = "";
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const generateButton = document.getElementById('generateBtn');
 
-    generateButton.addEventListener('click', function() {
+    generateButton.addEventListener('click', function () {
         currentPassword = "";
         const passwordLenValue = pwLength.value;
-        for(let i=0; i<passwordLenValue; i++){
+        for (let i = 0; i < passwordLenValue; i++) {
             let row = Math.floor(Math.random() * 4);
 
             let col = 0;
-            if(row < 2) col = Math.floor(Math.random() * 26);
+            if (row < 2) col = Math.floor(Math.random() * 26);
             else col = Math.floor(Math.random() * 10);
-            
+
             currentPassword += characters[row][col];
         }
 
-        if(isAuthenticated == "true"){
+        if (isAuthenticated == "true") {
             const modal = document.getElementById("savePasswordModal");
-            window.onclick = function(event) {
+            window.onclick = function (event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
                 }
             }
 
             const btn = document.getElementById("generateBtn");
-            btn.onclick = function() {
+            btn.onclick = function () {
                 modal.style.display = "block";
             }
 
             const span = document.getElementsByClassName("close")[0];
-            span.onclick = function() {
+            span.onclick = function () {
                 modal.style.display = "none";
             }
 
@@ -49,17 +49,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const webisteVal = webisteInput.value;
             regenratePasswordOpt.innerHTML = `Your Password for '${webisteVal}' is '${currentPassword}'`;
         }
-        else{
+        else {
             alert("You must login First.");
         }
     });
 });
 
 // working of save password
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const savePasswordBtn = document.getElementById('savePassword');
 
-    savePasswordBtn.addEventListener('click', function(){
+    savePasswordBtn.addEventListener('click', function () {
         let json = [];
         json.push({
             website: website.value,
@@ -71,8 +71,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const dataArr = JSON.parse(storedData);
 
         const currUser = localStorage.getItem("currUser");
-        for(let idx=0; idx<dataArr.length; idx++){
-            if(dataArr[idx].passXUserName == currUser){
+        for (let idx = 0; idx < dataArr.length; idx++) {
+            if (dataArr[idx].passXUserName == currUser) {
                 dataArr[idx].passwordsList.push(json);
                 localStorage.setItem("userData", JSON.stringify(dataArr));
                 window.location.href = "../HTML_Files/vault.html"
@@ -84,26 +84,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // code to show data in table
 let tb = document.querySelector('table');
-if(isAuthenticated == "true"){
+if(isAuthenticated == "true") {
     const data = localStorage.getItem("userData");
     const dataArr = JSON.parse(data);
 
     const currUser = localStorage.getItem("currUser");
-    for(let idx=0; idx<dataArr.length; idx++){
-        if(dataArr[idx].passXUserName == currUser){
+    for (let idx = 0; idx < dataArr.length; idx++) {
+        if (dataArr[idx].passXUserName == currUser) {
             const passwordsList = dataArr[idx].passwordsList;
-            if(passwordsList.length == 0){
+            if(passwordsList.length == 0) {
                 tb.innerHTML = "<h2><i>No Data to Show</i></h2>";
+                tb.style.border = "none";
             }
             else{
-                for(let pwIdx=0; pwIdx<passwordsList.length; pwIdx++){
+                for (let pwIdx = 0; pwIdx < passwordsList.length; pwIdx++) {
                     const ele = passwordsList[pwIdx][0];
                     const row =
-                    `<tr>
+                        `<tr>
                         <td>${ele.website}</td>
                         <td>${ele.username}</td>
                         <td>${maskPassword(ele.password)} <img src="../CSS_Files/copy.svg" onclick="copyText('${ele.password}')"></td>
                         <td> <button id="${ele.website}" class="deletePwBtn">Delete</button> </td>
+                        <td> <button id="${ele.website}Up" class="updatePwBtn">Update</button> </td>
                     </tr>`;
                     tb.innerHTML += row;
                 }
@@ -111,25 +113,26 @@ if(isAuthenticated == "true"){
         }
     }
 }
-else{
+else {
     tb.innerHTML = "<h2><i>You must login first.</i></h2>";
+    tb.style.border = "none";
     const addDataButton = document.getElementById('addDataButton');
     addDataButton.style.display = "none";
 }
 
 // Function to delete a row from vault table
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const deleteButton = document.querySelectorAll('.deletePwBtn');
-    for(let i=0; i<deleteButton.length; i++){
-        deleteButton[i].addEventListener('click', function() {
+    for (let i=0; i<deleteButton.length; i++) {
+        deleteButton[i].addEventListener('click', function () {
             const userData = localStorage.getItem('userData');
             const dataArr = JSON.parse(userData);
-    
+
             const currUser = localStorage.getItem('currUser');
-            for(let idx=0; idx<dataArr.length; idx++){
-                if(dataArr[idx].passXUserName == currUser){
+            for (let idx = 0; idx<dataArr.length; idx++) {
+                if (dataArr[idx].passXUserName == currUser) {
                     const passwordsList = dataArr[idx].passwordsList;
-                    const updatedPwList = passwordsList.filter(function(item){
+                    const updatedPwList = passwordsList.filter(function (item) {
                         return item[0].website != deleteButton[i].id;
                     });
                     dataArr[idx].passwordsList = updatedPwList;
@@ -142,6 +145,53 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Function to update password
+document.addEventListener('DOMContentLoaded', function () {
+    const updateButtons = document.querySelectorAll('.updatePwBtn');
+    for(let i=0; i<updateButtons.length; i++){
+        updateButtons[i].addEventListener('click', function(){
+            console.log(updateButtons[i].id);
+            const modal = document.getElementById("updatePwModal");
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            updateButtons[i].onclick = function () {
+                modal.style.display = "block";
+            }
+
+            const span = document.getElementsByClassName("close")[1];
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            const savePwBtn = document.getElementById("updatePasswordBtn");
+            savePwBtn.addEventListener('click', function(){
+                const userDataArr = JSON.parse(localStorage.getItem("userData"));
+                const currUser = localStorage.getItem("currUser");
+
+                for(let j=0; j<userDataArr.length; j++){
+                    if(userDataArr[j].passXUserName == currUser){
+                        const list = userDataArr[j].passwordsList;
+                        for(let k=0; k<list.length; k++){
+                            if(list[k][0].website + "Up" == updateButtons[i].id){
+                                list[k][0].website = newWebsite.value;
+                                list[k][0].username = newUsername.value;
+                                list[k][0].password = newPassword.value;
+                                userDataArr[j].passwordsList = list;
+                                localStorage.setItem("userData", JSON.stringify(userDataArr));
+                                window.location.href = "../HTML_Files/vault.html";
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    }
+});
+
 // Function to copy text
 function copyText(text) {
     navigator.clipboard.writeText(text);
@@ -149,44 +199,44 @@ function copyText(text) {
 }
 
 // Function to mask password
-function maskPassword(password){
+function maskPassword(password) {
     let newPassword = "";
-    for(let i=0; i<password.length; i++){
+    for (let i = 0; i < password.length; i++) {
         newPassword += '*';
     }
     return newPassword;
 }
 
 // Function to add data in table manually
-if(isAuthenticated == "true"){
-    document.addEventListener('DOMContentLoaded', function(){
+if (isAuthenticated == "true") {
+    document.addEventListener('DOMContentLoaded', function () {
         const addDataButton = document.getElementById('addDataButton');
 
-        addDataButton.addEventListener('click', function(){
+        addDataButton.addEventListener('click', function () {
             const modal = document.getElementById("addDataModal");
-            window.onclick = function(event) {
+            window.onclick = function (event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
                 }
             }
 
             const btn = document.getElementById("addDataButton");
-            btn.onclick = function() {
+            btn.onclick = function () {
                 modal.style.display = "block";
             }
 
             const span = document.getElementsByClassName("close")[0];
-            span.onclick = function() {
+            span.onclick = function () {
                 modal.style.display = "none";
             }
         })
     })
 }
 
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
     const addDataButton = document.getElementById('addDataButton2');
 
-    addDataButton.addEventListener('click', function(){
+    addDataButton.addEventListener('click', function () {
         const websiteVal = website2.value;
         const usernameVal = username2.value;
         const passwordVal = password2.value;
@@ -200,8 +250,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
         const dataArr = JSON.parse(localStorage.getItem("userData"));
         const currUser = localStorage.getItem("currUser");
-        for(let idx=0; idx<dataArr.length; idx++){
-            if(dataArr[idx].passXUserName == currUser){
+        for (let idx = 0; idx < dataArr.length; idx++) {
+            if (dataArr[idx].passXUserName == currUser) {
                 dataArr[idx].passwordsList.push(newData);
                 localStorage.setItem("userData", JSON.stringify(dataArr));
                 window.location.href = "../HTML_Files/vault.html"

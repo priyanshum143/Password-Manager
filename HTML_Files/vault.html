@@ -25,7 +25,8 @@
                 <th>Website</th>
                 <th>Username</th>
                 <th>Password</th>
-                <th>Action</th>
+                <th>Delete</th>
+                <th>Update</th>
             </tr>
         </table>
     </div>
@@ -42,6 +43,18 @@
                 <input type="text" id="username2" name="username2" placeholder="Enter your username">
                 <input type="password" id="password2" name="password2" placeholder="Enter your password">
                 <button id="addDataButton2">Add Data</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="updatePwModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div>
+                <input id="newWebsite" type="text" placeholder="Enter Your New Website">
+                <input id="newUsername" type="text" placeholder="Enter Your New Username">
+                <input id="newPassword" type="password" placeholder="Enter Your New Password">
+                <button id="updatePasswordBtn">Update</button>
             </div>
         </div>
     </div>
