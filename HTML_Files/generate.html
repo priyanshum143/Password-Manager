@@ -19,26 +19,28 @@
         </ul>
     </nav>
     
-    <form action="" id="generatePw">
-        <input type="text" name="website" id="website" placeholder="Enter the name of website">
-        <br>
-        <input type="text" name="username" id="username" placeholder="Enter Your Username">
-        <br>
-        <input type="number" name="pwLength" id="pwLength" placeholder="Enter the length of Password" min="0" max="100">
-        <br>
-        <div class="btn" id="generateBtn"> Generate Password </div>
-    </form>
-    
-    <div id="savePasswordModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div>
-                <p id="regenratePasswordOpt"> </p>
-                <p>Do you wanna save this Password?</p>
-                <button class="btn" id="savePassword">Save Password</button>
+    <main>
+        <form action="" id="generatePw">
+            <input type="text" name="website" id="website" placeholder="Enter the name of website">
+            <br>
+            <input type="text" name="username" id="username" placeholder="Enter Your Username">
+            <br>
+            <input type="number" name="pwLength" id="pwLength" placeholder="Enter the length of Password" min="0" max="100">
+            <br>
+            <div class="btn" id="generateBtn"> Generate Password </div>
+        </form>
+        
+        <div id="savePasswordModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div>
+                    <p id="regenratePasswordOpt"> </p>
+                    <p>Do you wanna save this Password?</p>
+                    <button class="btn" id="savePassword">Save Password</button>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <script src="../JS_Files/authentication.js"></script>
     <script src="../JS_Files/app.js"></script>

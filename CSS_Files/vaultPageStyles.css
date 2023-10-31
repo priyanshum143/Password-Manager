@@ -153,3 +153,36 @@ table, td, tr, th{
     background-color: #444;
     transform: translateY(2px);
 }
+
+@media (max-width: 700px){
+    main{
+        min-width: 600px;
+        height: 400px;
+        overflow: auto;
+    }
+
+    table{
+        margin: 20px;
+    }
+
+    #addDataDiv button{
+        margin-bottom: 15px;
+    }
+
+    .modal{
+        padding-top: 100px;
+    }
+    
+    .modal-content{
+        min-height: 280px;
+        width: 300px;
+    }
+
+    .modal-content div{
+        margin: 30px;
+    }
+
+    .modal-content div input{
+        width: 13rem;
+    }
+}

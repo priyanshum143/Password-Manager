@@ -107,7 +107,6 @@
 }
 
 .modal-content div{
-    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -140,4 +139,42 @@
 .modal-content div div button:active{
     background-color: #444;
     transform: translateY(2px);
+}
+
+@media (max-width: 700px){
+    main{
+        min-width: 600px;
+        height: 400px;
+    }
+
+    img{
+        display: none;
+    }
+
+    #contentDiv{
+        text-align: center;
+        margin-right: 160px;
+        margin-top: 30px;
+    }
+
+    h1{
+        margin-top: 30px;
+    }
+
+    #buttonsDiv button{
+        width: 10rem;
+        margin-bottom: 15px;
+    }
+
+    .modal{
+        padding-top: 180px;
+    }
+
+    .modal-content{
+        width: 80%;
+    }
+
+    .modal-content div div button{
+        width: 10rem;
+    }
 }
