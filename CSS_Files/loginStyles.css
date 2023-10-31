@@ -131,3 +131,10 @@
     background-color: #444;
     transform: translateY(2px);
 }
+
+@media (max-width: 700px){
+    form{
+        min-width: 600px;
+        min-height: 400px;
+    }
+}
