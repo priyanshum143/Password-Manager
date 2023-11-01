@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
     generateButton.addEventListener('click', function () {
         currentPassword = "";
         const passwordLenValue = pwLength.value;
+        if(passwordLenValue > 100){
+            alert("Password Leangth must be less than 100.");
+            return;
+        }
         for (let i = 0; i < passwordLenValue; i++) {
             let row = Math.floor(Math.random() * 4);
 
@@ -150,7 +154,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const updateButtons = document.querySelectorAll('.updatePwBtn');
     for(let i=0; i<updateButtons.length; i++){
         updateButtons[i].addEventListener('click', function(){
-            console.log(updateButtons[i].id);
             const modal = document.getElementById("updatePwModal");
             window.onclick = function (event) {
                 if (event.target == modal) {
@@ -195,7 +198,12 @@ document.addEventListener('DOMContentLoaded', function () {
 // Function to copy text
 function copyText(text) {
     navigator.clipboard.writeText(text);
-    alert("Text-copied => " + text);
+
+    const modal = document.getElementById("copyPwModal");
+    modal.style.display = "block";
+    setTimeout(function(){
+        modal.style.display = "none";
+    }, 700);
 }
 
 // Function to mask password
