@@ -8,19 +8,18 @@ This is a front-end web-based Password Manager and Random Password Generator app
 Password Manager:
 
 - Store and manage your login credentials securely.
-- Organize passwords by categories or accounts.
-- Search for saved passwords easily.
 - Update or delete saved passwords.
 - Copy passwords to the clipboard for easy use.
 
 Random Password Generator:
 
 - Generate strong and customizable random passwords.
-- Choose the length and character types for your password.
+- Choose the desired length for the password.
 - Easily copy generated passwords for use.
-- Getting Started
-- Prerequisites
-- Before you begin, ensure you have the following installed:
+- 
+## Getting Started
+
+Before you begin, ensure you have the following installed:
 
 ## Installation
 - Clone this repository to your local machine using the following command:
