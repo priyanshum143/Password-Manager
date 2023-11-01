@@ -16,7 +16,7 @@ Random Password Generator:
 - Generate strong and customizable random passwords.
 - Choose the desired length for the password.
 - Easily copy generated passwords for use.
-- 
+
 ## Getting Started
 
 Before you begin, ensure you have the following installed:
@@ -27,26 +27,9 @@ Before you begin, ensure you have the following installed:
 - Open the index.html file in your web browser.
 
 ## Usage
-Using the Password Manager
-Open the application in your web browser.
 
-Create a new account or log in if you already have an account.
-
-Add new passwords by clicking the "Add Password" or "New Entry" button.
-
-Fill in the required details, including the account name, username/email, password, and category.
-
-Click "Save" to store the password securely.
-
-You can view, edit, or delete saved passwords from the dashboard.
-
-Generating Random Passwords
-Open the application in your web browser.
-
-Click on the "Random Password Generator" feature.
-
-Customize your password by choosing the desired length and character types (e.g., uppercase letters, lowercase letters, numbers, special characters).
-
-Click "Generate Password."
-
-The generated password will be displayed, and you can copy it to your clipboard for use.
+- Open the application in your web browser.
+- Create a new account or log in if you already have an account.
+- Add new passwords by clicking the "Add Data" or "Generate Password" button.
+- Click "Save" to store the password securely.
+- You can view, edit, or delete saved passwords from the dashboard.
