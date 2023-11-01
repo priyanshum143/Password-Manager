@@ -1,31 +1,33 @@
 # CodeCrypt - Password Manager
 
-Introduction
+## Introduction
 This is a front-end web-based Password Manager and Random Password Generator application. It allows users to securely manage their passwords and generate strong, unique passwords for various online accounts. This README provides information on how to set up and use the application.
 
-Features
+## Features
+
 Password Manager:
 
-Store and manage your login credentials securely.
-Organize passwords by categories or accounts.
-Search for saved passwords easily.
-Update or delete saved passwords.
-Copy passwords to the clipboard for easy use.
+-Store and manage your login credentials securely.
+-Organize passwords by categories or accounts.
+-Search for saved passwords easily.
+-Update or delete saved passwords.
+-Copy passwords to the clipboard for easy use.
+
 Random Password Generator:
 
-Generate strong and customizable random passwords.
-Choose the length and character types for your password.
-Easily copy generated passwords for use.
-Getting Started
-Prerequisites
-Before you begin, ensure you have the following installed:
+-Generate strong and customizable random passwords.
+-Choose the length and character types for your password.
+-Easily copy generated passwords for use.
+-Getting Started
+-Prerequisites
+-Before you begin, ensure you have the following installed:
 
-A modern web browser (e.g., Chrome, Firefox, or Edge).
-Installation
-Clone this repository to your local machine using the following command:
-git clone https://github.com/your-username/your-password-manager.git
-Open the index.html file in your web browser.
-Usage
+## Installation
+-Clone this repository to your local machine using the following command:
+-git clone https://github.com/your-username/your-password-manager.git
+-Open the index.html file in your web browser.
+
+#Usage
 Using the Password Manager
 Open the application in your web browser.
 
