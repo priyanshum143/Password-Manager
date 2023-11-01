@@ -64,3 +64,10 @@ header > p{
 .github { background-color: #211F1F; } /* Change the color to match GitHub */
 .linkedin { background-color: #0A66C2; } /* Change the color to match LinkedIn */
 .instagram { background-color: #E4405F; } /* Change the color to match Instagram */
+
+@media (max-height: 700px){
+    main{
+        min-width: 600px;
+        height: 400px;
+    }
+}
