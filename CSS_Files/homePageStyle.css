@@ -9,11 +9,12 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    height: 80vh;
+    height: 89vh;
+    background-color: #FAF0E6;
 }
 
 #imgDiv img{
-    margin-top: 5rem;
+    margin-top: 2rem;
     margin-left: 5rem;
     height: 600px;  width: 720px;
     border-radius: 1rem;

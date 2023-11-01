@@ -5,8 +5,12 @@
 }
 
 /* Styles for Login Page */
+main{
+    background-color: #FAF0E6;
+}
+
 #login-form{
-    height: 85vh;  width: 100%;
+    height: 89vh;  width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,8 +56,12 @@
 }
 
 /* Styles For Reset Password Page */
+main{
+    background-color: #FAF0E6;
+}
+
 #resetPassword-form{
-    height: 80vh;  width: 100vw;
+    height: 89vh;  width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,8 +102,12 @@
 }
 
 /* Styles for Sign Up Page */
+main{
+    background-color: #FAF0E6;
+}
+
 #signup-form{
-    height: 80vh;  width: 100vw;
+    height: 89vh;  width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;

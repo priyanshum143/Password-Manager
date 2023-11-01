@@ -9,7 +9,8 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 85vh;  width: 100vw;
+    height: 89vh;  width: 100vw;
+    background-color: #FAF0E6;
 }
 
 header {
