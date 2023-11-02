@@ -33,3 +33,11 @@ Before you begin, ensure you have the following installed:
 - Add new passwords by clicking the "Add Data" or "Generate Password" button.
 - Click "Save" to store the password securely.
 - You can view, edit, or delete saved passwords from the dashboard.
+
+## Extension
+
+- You can also use this site as an extension.
+- You will find the same features in extensions version as in website version.
+
+## Instructions
+- Open your Browser -> Click on Extension -> Manage Extensions -> Load Unpacked -> Select the folder.
