@@ -1,3 +1,9 @@
+const currUser = sessionStorage.getItem("currUser");
+if(!currUser) sessionStorage.setItem("currUser", "");
+
+const isAuthenticatedInitial = sessionStorage.getItem("isAuthenticated");
+if(!isAuthenticatedInitial) sessionStorage.setItem("isAuthenticated", false);
+
 // Log Out Button
 document.addEventListener('DOMContentLoaded', function(){
     const logoutButton = document.getElementById("logoutBtn");
@@ -27,8 +33,8 @@ document.addEventListener('DOMContentLoaded', function(){
     const deleteIt = document.getElementById('yes1');
 
     deleteIt.addEventListener('click', function(){
-        localStorage.setItem("isAuthenticated", false);
-        localStorage.setItem("currUser", "");
+        sessionStorage.setItem("isAuthenticated", false);
+        sessionStorage.setItem("currUser", "");
         window.location.href = "HTML_Files/login.html";
     });
 });
@@ -44,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 // Function of logout button if user is not authenticated.
-const isAuthenticated = localStorage.getItem("isAuthenticated");
+const isAuthenticated = sessionStorage.getItem("isAuthenticated");
 if(isAuthenticated == "false"){
     const logoutButton = document.getElementById("logoutBtn");
     logoutButton.innerHTML = 'Log In';
@@ -81,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function(){
 // Function of 'Yes' button
 document.addEventListener('DOMContentLoaded', function(){
     const deleteIt = document.getElementById('yes');
-    const currUser = localStorage.getItem("currUser");
+    const currUser = sessionStorage.getItem("currUser");
     const dataArr = JSON.parse(localStorage.getItem("userData"));
 
     deleteIt.addEventListener('click', function(){
@@ -89,8 +95,8 @@ document.addEventListener('DOMContentLoaded', function(){
             return item.passXUserName != currUser;
         });
         localStorage.setItem("userData", JSON.stringify(updatedDataArr));
-        localStorage.setItem("currUser", "");
-        localStorage.setItem("isAuthenticated", false);
+        sessionStorage.setItem("currUser", "");
+        sessionStorage.setItem("isAuthenticated", false);
         window.location.href = "HTML_Files/signup.html";
     });
 });

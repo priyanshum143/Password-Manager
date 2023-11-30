@@ -7,7 +7,7 @@ const characters = [
 ];
 
 // working of generate button and function to open modal
-const isAuthenticated = localStorage.getItem("isAuthenticated");
+const isAuthenticated = sessionStorage.getItem("isAuthenticated");
 
 let currentPassword = "";
 document.addEventListener('DOMContentLoaded', function () {
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const storedData = localStorage.getItem("userData");
         const dataArr = JSON.parse(storedData);
 
-        const currUser = localStorage.getItem("currUser");
+        const currUser = sessionStorage.getItem("currUser");
         for (let idx = 0; idx < dataArr.length; idx++) {
             if (dataArr[idx].passXUserName == currUser) {
                 dataArr[idx].passwordsList.push(json);
@@ -92,7 +92,7 @@ if(isAuthenticated == "true") {
     const data = localStorage.getItem("userData");
     const dataArr = JSON.parse(data);
 
-    const currUser = localStorage.getItem("currUser");
+    const currUser = sessionStorage.getItem("currUser");
     for (let idx = 0; idx < dataArr.length; idx++) {
         if (dataArr[idx].passXUserName == currUser) {
             const passwordsList = dataArr[idx].passwordsList;
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const userData = localStorage.getItem('userData');
             const dataArr = JSON.parse(userData);
 
-            const currUser = localStorage.getItem('currUser');
+            const currUser = sessionStorage.getItem('currUser');
             for (let idx = 0; idx<dataArr.length; idx++) {
                 if (dataArr[idx].passXUserName == currUser) {
                     const passwordsList = dataArr[idx].passwordsList;
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const savePwBtn = document.getElementById("updatePasswordBtn");
             savePwBtn.addEventListener('click', function(){
                 const userDataArr = JSON.parse(localStorage.getItem("userData"));
-                const currUser = localStorage.getItem("currUser");
+                const currUser = sessionStorage.getItem("currUser");
 
                 for(let j=0; j<userDataArr.length; j++){
                     if(userDataArr[j].passXUserName == currUser){
@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         const dataArr = JSON.parse(localStorage.getItem("userData"));
-        const currUser = localStorage.getItem("currUser");
+        const currUser = sessionStorage.getItem("currUser");
         for (let idx = 0; idx < dataArr.length; idx++) {
             if (dataArr[idx].passXUserName == currUser) {
                 dataArr[idx].passwordsList.push(newData);

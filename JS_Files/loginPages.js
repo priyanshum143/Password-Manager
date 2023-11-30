@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
             for(let idx=0; idx<dataArr.length; idx++){
                 if(dataArr[idx].passXUserName == emailValue){
                     if(dataArr[idx].passXPassword == passwordValue){
-                        localStorage.setItem("isAuthenticated", true);
-                        localStorage.setItem("currUser", emailValue);
+                        sessionStorage.setItem("isAuthenticated", true);
+                        sessionStorage.setItem("currUser", emailValue);
                         alert(`Welcome back ${emailValue}`);
                         window.location.href = '../index.html';
                         return;
@@ -44,8 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 if(dataArr[idx].passXUserName == emailValue){
                     if(passwordVal1 == passwordVal2){
                         dataArr[idx].passXPassword = passwordVal1;
-                        localStorage.setItem("isAuthenticated", true);
-                        localStorage.setItem("currUser", emailValue);
+                        sessionStorage.setItem("isAuthenticated", true);
+                        sessionStorage.setItem("currUser", emailValue);
                         localStorage.setItem("userData", JSON.stringify(dataArr));
                         alert("Your password changed successfully");
                         window.location.href = '../index.html';
@@ -98,8 +98,8 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("Account Created, Welcome to CodeCrypt.");
             localStorage.setItem("userData", JSON.stringify(json));
         }
-        localStorage.setItem("isAuthenticated", true);
-        localStorage.setItem("currUser", emailValue);
+        sessionStorage.setItem("isAuthenticated", true);
+        sessionStorage.setItem("currUser", emailValue);
         window.location.href = '../index.html';
     });
 });
